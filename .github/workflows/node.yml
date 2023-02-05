@@ -18,6 +18,12 @@ jobs:
     needs: install
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: install project
+        run: npm i
+
       - name: "Build scripts"
         run: npm run build
 
@@ -25,5 +31,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: install project
+        run: npm i
+        
+      - name: "Build scripts"
+        run: npm run build
+        
       - name: Test project
         run: npm run build:test
